@@ -1,10 +1,10 @@
 ---
-const{name, info}=Astro.props
+const{name, info, href}=Astro.props
 ---
-<div class="post">
+<a href={href} class="post">
   <h1>{name}</h1>
   <p>{info}</p>
-</div>
+</a>
 
 <style>
   .post{
@@ -17,6 +17,12 @@ const{name, info}=Astro.props
     padding: 8px 15px 8px 15px;
     width: 530px;
     height: auto;
+    color: white;
+    text-decoration: none;
+  }
+
+  .post:hover{
+    color: orangered;
   }
 
   h1{
