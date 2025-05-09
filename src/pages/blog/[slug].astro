@@ -1,0 +1,17 @@
+---
+import { getEntryBySlug } from 'astro:content';
+import { AstroError } from 'astro/errors';
+import { slug } from 'astro:content';
+const { slug: pageSlug } = Astro.params;
+
+const post = await getEntryBySlug('blog', pageSlug);
+
+if (!post) throw new AstroError(`No post found for slug: ${pageSlug}`);
+---
+
+<article>
+  <h1>{post.data.title}</h1>
+  <p><em>{post.data.date.toDateString()}</em></p>
+  <div innerHTML={post.body} />
+</article>
+
