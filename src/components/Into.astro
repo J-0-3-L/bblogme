@@ -2,6 +2,10 @@
 import Post from "./elements/Post.astro";
 import Navbar from "./Navbar.astro";
 
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+
 ---
 <div class="into">
   <img src="../img/me.jpg" alt="img_me">
@@ -12,9 +16,17 @@ import Navbar from "./Navbar.astro";
     <div class="detail">
       <a href=''>See all posts</a>
     </div>
-    <Post name='post1' info='info de post 1'/>
-    <Post name='post2' info='info de post 2'/>
-    <Post name='post3' info='info de post 3'/>
+    {posts.map(post => (
+      <Post
+        name={post.data.title}
+        info={post.data.info}
+        href={`/blog/${post.data.slug}`}
+      />
+
+    ))}
+    <!-- <Post href="/" name='post1' info='info de post 1'/> -->
+    <!-- <Post name='post2' info='info de post 2'/> -->
+    <!-- <Post name='post3' info='info de post 3'/> -->
   </div>
 </div>
 <style>
@@ -44,6 +56,8 @@ import Navbar from "./Navbar.astro";
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
+    align-items:initial;
+    /*border: 1px solid green;*/
   }
 
   .detail{
