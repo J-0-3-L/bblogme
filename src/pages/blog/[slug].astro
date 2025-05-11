@@ -1,17 +1,29 @@
 ---
-import { getEntryBySlug } from 'astro:content';
-import { AstroError } from 'astro/errors';
-import { slug } from 'astro:content';
-const { slug: pageSlug } = Astro.params;
+import { getEntryBySlug, type CollectionEntry } from 'astro:content';
 
-const post = await getEntryBySlug('blog', pageSlug);
+const { slug } = Astro.params;
+const post = await getEntryBySlug('blog', slug) as CollectionEntry<'blog'>;
 
-if (!post) throw new AstroError(`No post found for slug: ${pageSlug}`);
+if (!post) {
+  throw new Error(`No post found for slug: ${slug}`);
+}
+
 ---
 
 <article>
   <h1>{post.data.title}</h1>
   <p><em>{post.data.date.toDateString()}</em></p>
-  <div innerHTML={post.body} />
+  <p>{post.data.info}</p>
+  <div set:html={post.body} />
 </article>
 
+<style>
+  h1{
+    font-size: 18px;
+    letter-spacing: 0.09em;
+  }
+
+  p{
+    font-size: 15px;
+  }
+</style>
