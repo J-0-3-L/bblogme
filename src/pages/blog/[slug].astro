@@ -1,4 +1,6 @@
 ---
+import Navbar from '../../components/Navbar.astro';
+import Layout from '../../layouts/Layout.astro';
 import { getEntryBySlug, type CollectionEntry, getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -20,21 +22,47 @@ if (!post) {
 }
 
 ---
+<Layout title={post.data.title}>
+  <main>
+    <Navbar/>
+    <article>
+      <h1>{post.data.title}</h1>
+      <p class="date"><em>{post.data.date.toDateString()}</em></p>
+      <!-- <p>{post.data.info}</p> -->
+      <div set:html={post.body} />
+    </article>
 
-<article>
-  <h1>{post.data.title}</h1>
-  <p><em>{post.data.date.toDateString()}</em></p>
-  <p>{post.data.info}</p>
-  <div set:html={post.body} />
-</article>
-
+  </main>
+</Layout>
 <style>
-  h1{
-    font-size: 18px;
-    letter-spacing: 0.09em;
+  main{
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;*/
+    margin-top: 2%;
+    margin-left: 280px;
+    /*margin-right: 50px;
+    border: 1px solid white;*/
+    width: 800px;
   }
 
-  p{
+  article{
+    margin-top: 2%;
+    padding: 8px 25px 30px;
+    border-radius: 15px;
+    border: 2px solid #525252;
+
+  }
+
+  h1{
+    font-size: 25px;
+    letter-spacing: 0.09em;
+    text-align: center;
+  }
+
+  .date{
     font-size: 15px;
+    text-align: right;
   }
 </style>
