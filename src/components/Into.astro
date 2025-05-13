@@ -20,7 +20,7 @@ const posts = await getCollection('blog');
       <Post
         name={post.data.title}
         info={post.data.info}
-        href={`/blog/${post.data.slug}`}
+        href={`/blog/${post.slug}`}
       />
 
     ))}
