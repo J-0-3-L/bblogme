@@ -1,5 +1,16 @@
 ---
-import { getEntryBySlug, type CollectionEntry } from 'astro:content';
+import { getEntryBySlug, type CollectionEntry, getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  console.log("Slugs generados para páginas del blog:");
+  console.log(posts.map((post) => post.slug));
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
 
 const { slug } = Astro.params;
 const post = await getEntryBySlug('blog', slug) as CollectionEntry<'blog'>;
