@@ -2,6 +2,7 @@
 import Navbar from '../../components/Navbar.astro';
 import Layout from '../../layouts/Layout.astro';
 import { getEntryBySlug, type CollectionEntry, getCollection } from 'astro:content';
+import LayoutSecond from '../../layouts/LayoutSecond.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -22,31 +23,16 @@ if (!post) {
 }
 
 ---
-<Layout title={post.data.title}>
-  <main>
-    <Navbar/>
+<LayoutSecond title={post.data.title}>
     <article>
       <h1>{post.data.title}</h1>
       <p class="date"><em>{post.data.date.toDateString()}</em></p>
       <!-- <p>{post.data.info}</p> -->
       <div set:html={post.body} />
     </article>
-
-  </main>
-</Layout>
+</LayoutSecond>
 <style>
-  main{
-    /*display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;*/
-    margin-top: 2%;
-    margin-left: 280px;
-    /*margin-right: 50px;
-    border: 1px solid white;*/
-    width: 800px;
-  }
-
+  
   article{
     margin-top: 2%;
     padding: 8px 25px 30px;
