@@ -2,6 +2,7 @@
 import CardSnippet from "../../components/elements/CardSnippet.astro"
 import LayoutSecond from "../../layouts/LayoutSecond.astro"
 
+import snippets from '../../data/snippets.json'
 
 const title = 'Code Snippets'
 ---
@@ -9,20 +10,30 @@ const title = 'Code Snippets'
     <article>
       <h1>Code Snippets</h1>
       <p>Esta son algunos de mis fragmentos de codigo me fueron utiles y espero que sean de ayude para ti tambien</p>
+
+      <div class="card">
+        {snippets.map((s) =>(
+          <CardSnippet
+            title={s.title}
+            info={s.info}
+          />
+        ))}
+      </div>
+
     </article>
-    <div class="card">
-      <CardSnippet title='testeo' info='testeo en info' />
-      <CardSnippet title='testeo_1' info='testeo en info_1' />
-       <CardSnippet title='testeo' info='testeo en info' />
-    </div>
 </LayoutSecond>
 
 <style>
+
+  article{
+    /*border: 1px solid white;*/
+  }
   .card{
-    width: max-content;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    margin-top: 20px;
   }
 </style>
 
