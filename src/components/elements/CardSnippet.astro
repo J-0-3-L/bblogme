@@ -1,0 +1,20 @@
+---
+const{title, info, href}=Astro.props
+---
+
+<a href={href} class="card">
+  <h2>{title}</h2>
+  <p>{info}</p>
+</a>
+<style>
+  .card{
+    border-radius: 12px;
+    border: 2px solid #525252;
+    padding: 8px 15px 8px 15px;
+    width: 355px;
+    height: auto;
+    color: white;
+    text-decoration: none; 
+  }
+  
+</style>
