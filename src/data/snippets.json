@@ -1,6 +1,6 @@
 [
-  {"title":"testeo1", "info":"description 1"},
-  {"title":"testeo2", "info":"description 2"},
+  {"title":"Entorno virtual en python", "info":"Pasos para configurar entornos en python"},
+  {"title":"Iniciar proyecto con Django", "info":"Paso a paso para crear un proyecto en Django"},
   {"title":"testeo3", "info":"description 3"},
   {"title":"testeo4", "info":"description 4"}
 
