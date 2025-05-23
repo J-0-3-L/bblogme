@@ -1,0 +1,55 @@
+---
+import LayoutSecond from "../../layouts/LayoutSecond.astro";
+
+---
+<LayoutSecond title="Cómo crear un entorno virtual en Python">
+  <h1>Entorno virtual en Python</h1>
+  <p>
+    Configurar un entorno virtual te permite aislar las dependencias de tu proyecto sin afectar otros entornos de Python instalados en tu PC.
+  </p>
+
+  <h2>Pasos:</h2>
+  <pre class="terminal">
+  <code>
+pip install virtualenv
+python -m venv venv
+# o con virtualenv
+python -m virtualenv venv
+
+# Activar entorno:
+# En Windows:
+.\\venv\\Scripts\\activate
+
+# En macOS/Linux:
+source venv/bin/activate
+
+# Ejecutar tu script
+python app.py</code>
+  </pre>
+ 
+  <h2>Notas: </h2>
+  <ul>
+    <li>Para desactivar el entorno, usa <code>deactivate</code>.</li>
+    <li>Agrega el entorno a tu <code>.gitignore</code> para no subirlo a GitHub.</li>
+  </ul>
+</LayoutSecond>
+
+<style>
+  .terminal {
+    background: #1e1e1e;
+    color: #dcdcdc;
+    padding: 1rem;
+    border-radius: 8px;
+    /*font-family: monospace;*/
+    overflow-x: auto;
+  }
+
+  code {
+    background-color: #1e1e1e;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #ffb86c;
+  }
+
+</style>
