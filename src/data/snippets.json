@@ -1,8 +1,8 @@
 [
-  {"title":"Entorno virtual en python", "info":"Pasos para configurar entornos en python"},
-  {"title":"Iniciar proyecto con Django", "info":"Paso a paso para crear un proyecto en Django"},
-  {"title":"testeo3", "info":"description 3"},
-  {"title":"testeo4", "info":"description 4"}
+  {"title":"Entorno virtual en python", "info":"Pasos para configurar entornos en python", "href":"/snippets/entorno-virtual"},
+  {"title":"Iniciar proyecto con Django", "info":"Paso a paso para crear un proyecto en Django", "href":"entorno-virtual"},
+  {"title":"testeo3", "info":"description 3" ,"href":"entorno-virtual"},
+  {"title":"testeo4", "info":"description 4" ,"href":"entorno-virtual"}
 
 
 ]
