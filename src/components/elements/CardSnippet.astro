@@ -1,4 +1,9 @@
 ---
+interface Props {
+  title:string
+  info:string 
+  href:string 
+}
 const{title, info, href}=Astro.props
 ---
 
@@ -10,7 +15,7 @@ const{title, info, href}=Astro.props
   .card{
     border-radius: 12px;
     border: 2px solid #525252;
-    padding: 10px 15px;
+    padding: 12px 15px;
     /*width: 355px;*/
     height: auto;
     color: white;
@@ -22,11 +27,12 @@ const{title, info, href}=Astro.props
   }
 
   h2{
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 500;
   }
 
   p{
-    font-size: 15px;
+    font-size: 13px;
   }
   
 </style>
