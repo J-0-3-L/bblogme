@@ -2,54 +2,69 @@
 import LayoutSecond from "../../layouts/LayoutSecond.astro";
 
 ---
-<LayoutSecond title="Cómo crear un entorno virtual en Python">
+<LayoutSecond title="Entorno virtual en Python">
   <h1>Entorno virtual en Python</h1>
   <p>
     Configurar un entorno virtual te permite aislar las dependencias de tu proyecto sin afectar otros entornos de Python instalados en tu PC.
   </p>
 
-  <h2>Pasos:</h2>
-  <pre class="terminal">
-  <code>
-pip install virtualenv
-python -m venv venv
-# o con virtualenv
-python -m virtualenv venv
+  <h2>Pasos: </h2>
 
-# Activar entorno:
-# En Windows:
-.\\venv\\Scripts\\activate
+  <ol>
+    <li>
+      <p><strong>Instala virtualenv (opcional):</strong> </p>
+      <pre class="terminal"><code>pip install virtualenv</code></pre>
+    </li>
 
-# En macOS/Linux:
-source venv/bin/activate
+    <li>
+      <p><strong>Crea el entorno virtual:</strong></p>
+      <pre class="terminal"><code>python -m venv venv</code></pre>
+      <pre class="terminal"><code>python -m virtualenv venv</code></pre>
+    </li>
 
-# Ejecutar tu script
-python app.py</code>
-  </pre>
+    <li>
+      <p><strong>Activa el entorno virtual:</strong></p>
+      <p>En Windows:</p>
+      <pre class="terminal"><code>.\venv\Scripts\activate</code></pre>
+      <p>En macOS/Linux:</p>
+      <pre class="terminal"><code>source venv/bin/activate</code></pre>
+    </li>
+
+    <li>
+      <p><strong>Ejecuta tu archivo Python:</strong></p>
+      <pre class="terminal"><code>python app.py</code></pre>
+    </li>
+
+    <li>
+      <p><strong>Desactiva el entorno cuando termines:</strong></p>
+      <pre class="terminal"><code>deactivate</code></pre>
+    </li>
+  </ol>
  
   <h2>Notas: </h2>
   <ul>
-    <li>Para desactivar el entorno, usa <code>deactivate</code>.</li>
     <li>Agrega el entorno a tu <code>.gitignore</code> para no subirlo a GitHub.</li>
   </ul>
 </LayoutSecond>
 
 <style>
+
   .terminal {
-    background: #1e1e1e;
+    background-color: #1c1917;
     color: #dcdcdc;
-    padding: 1rem;
+    padding: 0.75rem 1rem;
     border-radius: 8px;
-    /*font-family: monospace;*/
+    font-size: 0.95rem;
+    line-height: 1.4;
     overflow-x: auto;
+    margin-bottom: 1rem;
+    border: 1px solid #6b7280;
   }
 
   code {
-    background-color: #1e1e1e;
-    padding: 2px 5px;
-    border-radius: 4px;
+    background-color: transparent;
+    color: inherit;
     font-family: monospace;
-    color: #ffb86c;
-  }
+  } 
 
 </style>
