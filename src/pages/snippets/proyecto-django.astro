@@ -1,0 +1,76 @@
+---
+import LayoutSecond from "../../layouts/LayoutSecond.astro";
+
+
+---
+<LayoutSecond title='Proyecto en Django'>
+  <h1>Iniciar un proyecto con Django</h1>
+  <p>
+    Django es un framework robusto para crear aplicaciones web completas en Python, ideal para proyectos grandes.
+  </p>
+
+  <h2>Comandos basicos:</h2>
+  <ol>
+        <li><strong>Instalar Django:</strong>
+          <pre class="terminal"><code>pip install django</code></pre>
+        </li>
+        <li><strong>Crear un nuevo proyecto:</strong>
+          <pre class="terminal"><code>django-admin startproject myproject
+cd myproject</code></pre>
+        </li>
+        <li><strong>Crear una aplicacion dentro del proyecto:</strong>
+          <pre class="terminal"><code>django-admin startapp core</code></pre>
+        </li>
+        <li><strong> Ejecutar el servidor:</strong>
+          <pre class="terminal"><code>python manage.py runserver</code></pre>
+        </li>
+      </ol>
+
+      <h2>Migrar Modelos</h2>
+      <p>Cada vez que hagas cambios en los modelos de datos:</p>
+      <pre class="terminal"><code>python manage.py makemigrations
+python manage.py migrate</code></pre>
+
+      <h2>Estructura del Proyecto</h2>
+      <pre class="terminal"><code>myproject/
+  - app/               # Aplicacion principal
+  - myproject/         # Configuracion del proyecto
+    - settings.py      # Configuracion global
+    - urls.py          # Enrutamiento de URLs
+  - manage.py          # Script para tareas administrativas
+</code></pre>
+
+      <h2>Proximos Pasos</h2>
+      <ul>
+        <li>Registrar dentro <code>app/</code> en <code>settings.py</code></li>
+        <li>Crear vistas y URLs propias</li>
+        <li>Conectar a una base de datos (por defecto: SQLite)</li>
+        <li>Crear modelos, formularios y templates</li>
+      </ul> 
+
+  <h2>Consejos:</h2>
+  <ul>
+    <li>Agrega tu app en <code>INSTALLED_APPS</code> dentro de <code>settings.py</code>.</li>
+    <li>Usa <code>.env</code> con <code>python-decouple , dotenv, os.environ</code> o similar para gestion de variables.</li>
+  </ul>
+</LayoutSecond>
+<style>
+  .terminal {
+    background-color: #1c1917;
+    color: #dcdcdc;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    border: 1px solid #6b7280;
+  }
+
+  code {
+    background-color: transparent;
+    color: inherit;
+    font-family: monospace;
+  } 
+
+</style>
