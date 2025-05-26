@@ -1,0 +1,151 @@
+---
+import LayoutSecond from "../../layouts/LayoutSecond.astro";
+
+
+---
+<LayoutSecond title='Proyecto en SpringBoot'>
+  <h1>Iniciar proyecto con SpringBoot</h1>
+  <p>
+    Pasos para crear un proyecto en Spring Boot con JSP, JPA y MySQL, incluyendo configuracion de capas, controladores, servicios, y mas.
+  </p>
+  <h2>Nota: </h2>
+  <p>Aunque JSP sigue siendo funcional, Spring Boot recomienda el uso de Thymeleaf o motores modernos para plantillas. Se usa JSP por simplicidad.</p>
+
+
+  <h2>Pasos:</h2>
+  <ol>
+    <li>
+      <p><strong>Crear un nuevo proyecto:</strong></p> 
+      <p>Ingresa a <a href="https://start.spring.io/" style="color: skyblue;">spring initializr</a></p>
+    </li>
+
+    
+    <li>
+      <p><strong>Configura el proyecto:</strong></p>
+      <ul>
+        <li><strong>Project:</strong> Maven</li>
+        <li><strong>Language:</strong> Java</li>
+        <li><strong>Spring Boot:</strong> 3.5.0</li>
+        <li><strong>Group:</strong> <code>com.tunombre</code></li>
+        <li><strong>Artifact:</strong> <code>nombre-del-proyecto</code></li>
+        <li><strong>Packaging:</strong> WAR</li>
+        <li><strong>Java Version:</strong> 17</li>
+        <li><strong>Dependencies:</strong> Spring Web, Lombok, DevTools, Spring Data JPA, MySQL Driver</li>
+      </ul>
+    </li>
+    
+    <li>
+      <p><strong>Agrega dependencias adicionales en <code>pom.xml</code>:</strong></p>
+      <pre class="terminal"><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+  &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;jakarta.servlet.jsp.jstl&lt;/groupId&gt;
+  &lt;artifactId&gt;jakarta.servlet.jsp.jstl-api&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;org.glassfish.web&lt;/groupId&gt;
+  &lt;artifactId&gt;jakarta.servlet.jsp.jstl&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;org.mindrot&lt;/groupId&gt;
+  &lt;artifactId&gt;jbcrypt&lt;/artifactId&gt;
+  &lt;version&gt;0.4&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+    </li>
+    
+    <li>
+      <p><strong>Crea la siguiente estructura de carpetas:</strong></p>
+      <pre class="terminal"><code>src/
+- main/
+    - java/com/tunombre/
+        - controllers/
+        - models/
+        - repositories/
+        - services/
+    - resources/
+        - application.properties
+    - webapp/
+        - WEB-INF/
+            - index.jsp</code></pre>
+    </li>
+
+    <li>
+      <p><strong>Agrega configuracion en <code>application.properties</code>:</strong></p>
+      <pre class="terminal"><code>spring.mvc.view.prefix=/WEB-INF/
+spring.mvc.view.suffix=.jsp
+
+spring.datasource.url=jdbc:mysql://localhost:3306/nombre-de-la-db?createDatabaseIfNotExist=true&amp;&amp;serverTimezone=UTC
+spring.datasource.username=$&#123DB_USER&#125
+spring.datasource.password=$&#123DB_PASS&#125
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+spring.jpa.hibernate.ddl-auto=update
+spring.mvc.hiddenmethod.filter.enabled=true</code></pre>
+
+      <p><strong>Recomendacion:</strong> Usa variables de entorno para no exponer tu contrasena en el repositorio.</p>
+    </li>
+
+    <li>
+      <p><strong>Agrega la clase principal del proyecto:</strong></p>
+      <pre class="terminal"><code>@SpringBootApplication
+    public class ProyectoApplication &#123;
+      public static void main(String[] args) &#123;
+        SpringApplication.run(ProyectoApplication.class, args);
+      &#125;
+    &#125;</code></pre>
+    </li>
+
+
+    
+    <li>
+      <p><strong>Ejecuta el proyecto:</strong></p>
+      <pre class="terminal"><code>mvn spring-boot:run</code></pre>
+    </li>
+
+    <li>
+      <p><strong>Abre en el navegador:</strong></p>
+      <pre class="terminal"><code>http://localhost:8080</code></pre>
+    </li>
+  </ol>
+
+  <h2>Consejos adicionales:</h2>
+  <ul>
+    <li>No subas tu archivo <code>application.properties</code> con contrasenas a GitHub.</li>
+    <li>Incluye <code>/target</code> y <code>.env</code> (si usas) en tu <code>.gitignore</code>.</li>
+    <li>Considera usar Thymeleaf si tu proyecto va a produccion.</li>
+  </ul>
+
+</LayoutSecond>
+
+<style>
+
+  .terminal {
+    background-color: #1c1917;
+    color: #dcdcdc;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    border: 1px solid #6b7280;
+  }
+
+  code {
+    background-color: transparent;
+    color: inherit;
+    font-family: monospace;
+  } 
+
+</style>
+
