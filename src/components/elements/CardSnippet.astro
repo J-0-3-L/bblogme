@@ -2,14 +2,18 @@
 interface Props {
   title:string
   info:string 
-  href:string 
+  href:string
+  src:string
 }
-const{title, info, href}=Astro.props
+const{title, info, href, src}=Astro.props
 ---
 
 <a href={href} class="card">
-  <h2>{title}</h2>
-  <p>{info}</p>
+  <div class="data">
+    <h2>{title}</h2>
+    <p>{info}</p>
+  </div>
+  <img src={src} alt="img_snippet">
 </a>
 <style>
   .card{
@@ -19,7 +23,10 @@ const{title, info, href}=Astro.props
     /*width: 355px;*/
     height: auto;
     color: white;
-    text-decoration: none; 
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   
   h2, p{
@@ -33,6 +40,12 @@ const{title, info, href}=Astro.props
 
   p{
     font-size: 13px;
+  }
+
+  img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain; 
   }
   
 </style>
