@@ -1,8 +1,8 @@
 [
-  {"title":"Entorno virtual en python", "info":"Pasos para configurar entornos en python", "href":"/snippets/entorno-virtual"},
-  {"title":"Iniciar proyecto con Django", "info":"Paso a paso para crear un proyecto en Django", "href":"/snippets/proyecto-django"},
-  {"title":"Iniciar proyecto con SpringBoot", "info":"Paso a paso para crear un proyecto en SpringBoot" ,"href":"/snippets/proyecto-springboot"},
-  {"title":"testeo4", "info":"description 4" ,"href":"entorno-virtual"}
+  {"title":"Entorno virtual en python", "info":"Pasos para configurar entornos en python", "href":"/snippets/entorno-virtual", "src":"/svg/python.svg"},
+  {"title":"Iniciar proyecto con Django", "info":"Paso a paso para crear un proyecto en Django", "href":"/snippets/proyecto-django","src":"/svg/django.svg"},
+  {"title":"Iniciar proyecto con SpringBoot", "info":"Pasos para crear un proyecto en SpringBoot" ,"href":"/snippets/proyecto-springboot", "src":"/svg/spring.svg"},
+  {"title":"testeo4", "info":"description 4" ,"href":"entorno-virtual", "src":"/svg/deafult.svg"}
 
 
 ]
